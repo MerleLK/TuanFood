@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="login" extends="struts-default" namespace="/">
+        <action name="login" class="com.tuan.Action.loginAction.LoginAction">
+            <result name="adminSuccess">/tuanfood/admin/admin_index.jsp</result>
+            <result name="sellerSuccess">/tuanfood/seller/seller_index.jsp</result>
+            <!--<result name="userSuccess">/tuanfood/user/user_index.jsp</result>-->
+            <result name="userSuccess" type="redirect">customerEntry.action?cityId=2</result>
+            <result name="fail">/login.jsp</result>
+            <result name="input">/login.jsp</result>
+        </action>
+        <action name="register" class="com.tuan.Action.loginAction.registerAction">
+            <result name="success">/index.jsp</result>
+            <result name="input">/register.jsp</result>
+            <result name="fail">/register.jsp</result>
+        </action>
+        <action name="logout" class="com.tuan.Action.loginAction.logoutAction">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+</struts>

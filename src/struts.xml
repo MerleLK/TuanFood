@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <!-- 配置加载静态资源文件 -->
+    <constant name="struts.action.excludePattern" value="/static/.*?"/>
+
+    <!-- 导入其他Action配置文件 -->
+    <include file="com/tuan/Action/loginAction/login.xml"/>
+    <include file="com/tuan/Action/adminAction/admin.xml"/>
+    <include file="com/tuan/Action/sellerAction/seller.xml"/>
+    <include file="com/tuan/Action/userAction/user.xml"/>
+</struts>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="seller" extends="struts-default" namespace="/">
+        <action name="getAllDistrictType" class="com.tuan.Action.sellerAction.getDistrictTypeAction">
+            <result name="success">/tuanfood/seller/seller_publishProduct.jsp</result>
+        </action>
+
+        <action name="upload" class="com.tuan.Action.sellerAction.PublishProductAction">
+            <param name="savePath">/productPics</param>
+            <result name="success">/tuanfood/seller/seller_index.jsp</result>
+            <result name="input">getAllDistrictType.action</result>
+            <result name="fail">getAllDistrictType.action</result>
+        </action>
+
+        <action name="getAllPublishProduct" class="com.tuan.Action.sellerAction.getAllPublishProductAction">
+            <result name="success">/tuanfood/seller/seller_showAllPublishProduct.jsp</result>
+        </action>
+        <action name="getAllReview" class="com.tuan.Action.sellerAction.getAllReviewAction">
+            <result name="success">/tuanfood/seller/seller_showAllReview.jsp</result>
+        </action>
+
+        <action name="showSellerInfo" class="com.tuan.Action.showUserInfoAction">
+            <result name="success">/tuanfood/seller/seller_showSellerInfo.jsp</result>
+        </action>
+    </package>
+</struts>

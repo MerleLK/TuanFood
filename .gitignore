@@ -1,5 +1,9 @@
 # Compiled class file
+/out
 *.class
+.idea
+lib
+TuanFood.iml
 
 # Log file
 *.log

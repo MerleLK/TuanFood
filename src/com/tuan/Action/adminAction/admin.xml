@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="admin" extends="struts-default" namespace="/">
+        <action name="addCity" class="com.tuan.Action.adminAction.AddCityAction">
+            <result name="success">/tuanfood/admin/admin_index.jsp</result>
+            <result name="fail">/tuanfood/admin/admin_addCity.jsp</result>
+        </action>
+        <action name="showCity" class="com.tuan.Action.adminAction.showCityAction">
+            <result name="success">/tuanfood/admin/admin_showCity.jsp</result>
+        </action>
+
+        <action name="showDistrict" class="com.tuan.Action.adminAction.showDistrictAction">
+            <result name="success">/tuanfood/admin/admin_showDistrict.jsp</result>
+        </action>
+        <action name="getAllCityId" class="com.tuan.Action.adminAction.getAllCityIdAction">
+            <result name="success">/tuanfood/admin/admin_addDistrict.jsp</result>
+        </action>
+        <action name="addDistrict" class="com.tuan.Action.adminAction.AddDistrictAction">
+            <result name="success">/tuanfood/admin/admin_index.jsp</result>
+            <result name="fail">/tuanfood/admin/admin_index.jsp</result>
+        </action>
+
+        <action name="addFoodType" class="com.tuan.Action.adminAction.AddFoodAction">
+            <result name="success">/tuanfood/admin/admin_index.jsp</result>
+            <result name="fail">/tuanfood/admin/admin_addFoodType.jsp</result>
+            <result name="input>">/tuanfood/admin/admin_addFoodType.jsp</result>
+        </action>
+        <action name="showFoodType" class="com.tuan.Action.adminAction.showFoodTypeAction">
+            <result name="success">/tuanfood/admin/admin_showFoodType.jsp</result>
+        </action>
+
+
+        <action name="showAllReviewWithoutCheck" class="com.tuan.Action.adminAction.showAllReviewWithoutChheckAction">
+            <result name="success">/tuanfood/admin/admin_showReviewWithoutCheck.jsp</result>
+        </action>
+        <action name="getReviewInfo" class="com.tuan.Action.adminAction.showReviewInfoAction">
+            <result name="success">/tuanfood/admin/admin_doReview.jsp</result>
+        </action>
+        <action name="addProduct" class="com.tuan.Action.adminAction.AddProductAction">
+            <result name="success">/tuanfood/admin/admin_index.jsp</result>
+            <result name="fail">showAllReviewWithoutCheck.action</result>
+        </action>
+
+        <action name="showAllProduct" class="com.tuan.Action.adminAction.showAllProductAction">
+            <result name="success">/tuanfood/admin/admin_showProduct.jsp</result>
+        </action>
+    </package>
+</struts>

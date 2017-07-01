@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="custom" extends="struts-default">
+        <action name="customerEntry" class="com.tuan.Action.userAction.CustomerEntryAction" >
+            <result name="success">/tuanfood/user/user_index.jsp</result>
+        </action>
+
+        <action name="softByPriceDesc" class="com.tuan.Action.userAction.softByPriceDescAction">
+            <result name="success">/tuanfood/user/user_index.jsp</result>
+        </action>
+
+        <action name="getProductByPriceRange" class="com.tuan.Action.userAction.getProductByPriceRangeAction">
+            <result name="success">/tuanfood/user/user_index.jsp</result>
+        </action>
+
+        <action name="getProductByFoodTypeAndCity" class="com.tuan.Action.userAction.getProductByFoodTypeAndCityAction">
+            <result name="success">/tuanfood/user/user_index.jsp</result>
+        </action>
+
+        <action name="getProductInfo" class="com.tuan.Action.userAction.getProductInfoAction">
+            <result name="success">/tuanfood/user/user_showProductInfo.jsp</result>
+        </action>
+
+        <action name="buyProduct" class="com.tuan.Action.userAction.BuyProductAction">
+            <result name="success" type="chain">showAllOrderProduct</result>
+            <result name="fail" type="chain">showAllOrderProduct</result>
+        </action>
+
+        <action name="showAllOrderProduct" class="com.tuan.Action.userAction.showAllOrderAction">
+            <result name="success">/tuanfood/user/user_showOrderInfo.jsp</result>
+        </action>
+
+        <action name="showUserInfo" class="com.tuan.Action.showUserInfoAction">
+            <result name="success">/tuanfood/user/user_showUserInfo.jsp</result>
+        </action>
+    </package>
+</struts>
