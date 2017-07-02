@@ -84,5 +84,68 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var obj = document.getElementById('form');
+    var checkPriceInput = function () {
+        var productPrice = document.getElementById("productPrice").value;
+        var productPriceOrigin = document.getElementById("productPriceOrigin").value;
+
+        if (!isNaN(productPrice) && !isNaN(productPriceOrigin)) {
+            if (parseFloat(productPrice) < parseFloat(productPriceOrigin)) {
+                if (timeCheck()){
+                    if(ventoryCheck()){
+                        return true;
+                    }else
+                        return false;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                alert("您输入的价格格式有误!原价应该高于优惠价");
+                return false;
+            }
+        }
+        else {
+            alert("价格为数字!");
+            return false;
+        }
+    };
+    obj.onsubmit = function () {
+        return checkPriceInput();
+    };
+
+    function timeCheck() {
+        var now = new Date().getTime();
+        var productDeadLine = document.getElementById("productDeadLine").value;
+        var arr = productDeadLine.split("-");
+        var choseTime = new Date(arr[0], arr[1], arr[2]).getTime();
+
+        if (choseTime > now){
+            alert("请选择正确优惠时间，应比当前时间大");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    function ventoryCheck() {
+        var productInventory = document.getElementById("productInventory").value;
+        if (!isNaN(productInventory)){
+            if (parseInt(productInventory) == productInventory && parseInt(productInventory)>0){
+                return true;
+            }
+            else {
+                alert("库存量应为大于0的整数!");
+                return false;
+            }
+        }
+        else {
+            alert("库存量应为数字");
+            return false;
+        }
+    }
+</script>
 </body>
 </html>

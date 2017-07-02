@@ -30,7 +30,7 @@
                         <label for="result" class="col-sm-2 control-label">审核结果</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="result" name="result"
-                                   value="<s:property value="review.result"/>" required/>
+                                   value="<s:property value="review.result"/>" />
                         </div>
                     </div>
                     <div class="form-group">

@@ -41,6 +41,6 @@ public class AddFoodAction extends ActionSupport{
         }else
             addActionError("该美食类别已存在!");
 
-        return "fail";
+        return "input";
     }
 }

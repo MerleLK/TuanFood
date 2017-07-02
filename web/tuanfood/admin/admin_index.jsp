@@ -10,6 +10,22 @@
 <html>
 <%@include file="admin_header.jsp" %>
 <body>
+<s:if test="hasFieldErrors()">
+    <div class="alert alert-dismissable alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4>警告！</h4>
+        <strong>Warning!</strong>
+        检查你的错误 <s:fielderror/>
+    </div>
+</s:if>
+<s:if test="hasActionErrors()">
+    <div class="alert alert-dismissable alert-warning">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4>警告！</h4>
+        <strong>Warning!</strong>
+        检查你的错误 <s:actionerror/>
+    </div>
+</s:if>
 <s:if test="hasActionMessages()">
     <div class="alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>

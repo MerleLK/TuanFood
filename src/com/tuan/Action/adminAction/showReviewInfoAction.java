@@ -34,7 +34,7 @@ public class showReviewInfoAction extends ActionSupport{
     public String execute() throws Exception{
         AdminDAO adminDAO = new AdminDAOImpl();
         review = adminDAO.getReviewInfo(reviewId);
-        System.out.println(review+ "ShowReviewInfoAction");
+//        System.out.println(review+ "ShowReviewInfoAction");
         return SUCCESS;
     }
 }

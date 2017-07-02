@@ -50,11 +50,11 @@
                             <input type="password" class="form-control" id="password_again"
                                    name="user.password_again" required/>
                         </div>
-                        <div class="form-group">
-                            <label for="userAge">年龄</label>
-                            <input type="text" class="form-control" id="userAge"
-                                   name="user.userAge" required/>
-                        </div>
+                        <%--<div class="form-group" hidden>--%>
+                            <%--<label for="userAge">年龄</label>--%>
+                            <%--<input type="text" class="form-control" id="userAge"--%>
+                                   <%--name="user.userAge" />--%>
+                        <%--</div>--%>
                         <div class="form-group">
                             <label for="userBirthday">生日</label>
                             <input type="date" class="form-control" id="userBirthday"
@@ -98,11 +98,32 @@
             return false;
         }
         else {
-            return true;
+            if (timeCheck()){
+                return true;
+            }
+            else {
+                return false;
+            }
+
         }
     };
     obj.onsubmit = function () {
         return check_password();
+    };
+
+    function timeCheck() {
+        var now = new Date().getTime();
+        var userBirthday = document.getElementById("userBirthday").value;
+        var arr = userBirthday.split("-");
+        var choseTime = new Date(arr[0], arr[1], arr[2]).getTime();
+
+        if (choseTime < now){
+            alert("请选择正确的出生年月，应比当前时间小");
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 </script>
 </body>

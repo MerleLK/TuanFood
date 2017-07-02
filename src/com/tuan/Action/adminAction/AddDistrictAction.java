@@ -32,6 +32,13 @@ public class AddDistrictAction extends ActionSupport{
     }
 
     @Override
+    public void validate(){
+        if (districtName.trim().length() ==0){
+            addFieldError("districtName", "地区名称不能为空");
+        }
+    }
+
+    @Override
     public String execute() throws Exception{
         AdminDAO adminDAO = new AdminDAOImpl();
 

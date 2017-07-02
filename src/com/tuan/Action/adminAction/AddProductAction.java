@@ -49,6 +49,13 @@ public class AddProductAction extends ActionSupport{
     }
 
     @Override
+    public void validate(){
+        if (result.trim().length()==0){
+            addActionError("审核结果不能为空!");
+        }
+    }
+
+    @Override
     public String execute() throws Exception{
 
         System.out.println(reviewId);
