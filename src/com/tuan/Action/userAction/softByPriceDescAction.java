@@ -7,6 +7,7 @@ import com.tuan.DB.DAOImpl.AdminDAOImpl;
 import com.tuan.DB.DAOImpl.CustomerDAOImpl;
 import com.tuan.DB.domain.Product;
 
+import java.util.Comparator;
 import java.util.List;
 
 /** 按照价格降序排列
@@ -59,6 +60,18 @@ public class softByPriceDescAction extends ActionSupport{
         citys = adminDAO.getAllCitys();
         foodTypes = adminDAO.getAllFoodType();
         products = customerDAO.getSoftProductByCityId(cityId);
+
+        // todo 可能会出现bug 需要再考虑
+//        Comparator<Product> comparator = new Comparator<Product>() {
+//            @Override
+//            public int compare(Product o1, Product o2) {
+//                return String.valueOf(o2.getProductPrice()).compareTo(String.valueOf(o1.getProductPrice()));
+//            }
+//        };
+//        products.sort(comparator);
+        // use lambda
+        products.sort((Product o1, Product o2) ->
+                String.valueOf(o2.getProductPrice()).compareTo(String.valueOf(o1.getProductPrice())));
         return SUCCESS;
     }
 }

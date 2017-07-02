@@ -8,6 +8,7 @@ import com.tuan.DB.DAOImpl.AdminDAOImpl;
 import com.tuan.DB.DAOImpl.CustomerDAOImpl;
 import com.tuan.DB.domain.Product;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +73,8 @@ public class CustomerEntryAction  extends ActionSupport{
         foodTypes = adminDAO.getAllFoodType();
         products = customerDAO.getAllProductByCityId(cityId);
         cityName = customerDAO.getCityNameByCityId(cityId);
+        Comparator<Product> productComparator = Comparator.comparingDouble(Product::getProductPrice);
+        products.sort(productComparator);
         System.out.println(citys);
         System.out.println(foodTypes);
         System.out.println(products);

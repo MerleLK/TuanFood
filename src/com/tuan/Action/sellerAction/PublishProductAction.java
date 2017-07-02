@@ -7,6 +7,7 @@ import com.tuan.DB.DAO.UserDAO;
 import com.tuan.DB.DAOImpl.SellerDAOImpl;
 import com.tuan.DB.DAOImpl.UserDAOImpl;
 import com.tuan.DB.domain.Review;
+import com.tuan.comonMethod.GenerateShortUuid;
 import org.apache.struts2.ServletActionContext;
 
 import java.io.File;
@@ -66,9 +67,12 @@ public class PublishProductAction extends ActionSupport{
 
     @Override
     public String execute() throws Exception{
+        // 使用UUID重命名上传文件的文件名
+        GenerateShortUuid generateShortUuid = new GenerateShortUuid();
+        String newFileName =  generateShortUuid.generateShortUuid();
 
-
-        FileOutputStream fos = new FileOutputStream(getSavePath() + "\\" + getUploadFileName());
+//        FileOutputStream fos = new FileOutputStream(getSavePath() + "\\" + getUploadFileName());
+        FileOutputStream fos = new FileOutputStream(getSavePath() + "\\" + newFileName);
         FileInputStream fis = new FileInputStream(getUpload());
         byte[] buffer = new byte[1024];
         int len = 0;
@@ -79,7 +83,8 @@ public class PublishProductAction extends ActionSupport{
         System.out.println("文件保存成功");
 
         // 设置文件的保存路径
-        getReview().setProductPic("\\productPics\\"+getUploadFileName());
+//        getReview().setProductPic("\\productPics\\"+getUploadFileName());
+        getReview().setProductPic("\\productPics\\"+newFileName);
         System.out.println(review.getProductPic());
 
         // 设置商品的发布者id
