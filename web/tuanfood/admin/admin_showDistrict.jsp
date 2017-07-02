@@ -39,7 +39,7 @@
                         <th><s:property value="#row[0]"/></th>
                         <th><s:property value="#row[1]"/></th>
                         <th><s:property value="#row[2]"/></th>
-                        <th><a href="#">删除</a></th>
+                        <th><a href="getDistrictInfo.action?districtId=<s:property value='#row[0]'/>">修改</a></th>
                     </tr>
                 </s:iterator>
                 </tbody>

@@ -55,9 +55,9 @@
                                 <li>
                                     <a class="btn-default" href="showCity.action">查看当前所有城市</a>
                                 </li>
-                                <li>
-                                    <a class="btn-default" href="#">删除城市</a>
-                                </li>
+                                <%--<li>--%>
+                                    <%--<a class="btn-default" href="#">删除城市</a>--%>
+                                <%--</li>--%>
                             </ul>
                         </li>
                         <%-- todo --%>
@@ -71,9 +71,9 @@
                                 <li>
                                     <a class="btn-default" href="showDistrict.action">查看所有地区</a>
                                 </li>
-                                <li>
-                                    <a class="btn-default" href="#">删除地区</a>
-                                </li>
+                                <%--<li>--%>
+                                    <%--<a class="btn-default" href="#">删除地区</a>--%>
+                                <%--</li>--%>
                             </ul>
                         </li>
 
@@ -87,9 +87,9 @@
                                 <li>
                                     <a class="btn-default" href="showFoodType.action">查看美食当前类别</a>
                                 </li>
-                                <li>
-                                    <a class="btn-default" href="#">删除美食类别</a>
-                                </li>
+                                <%--<li>--%>
+                                    <%--<a class="btn-default" href="#">删除美食类别</a>--%>
+                                <%--</li>--%>
                             </ul>
                         </li>
 

@@ -115,7 +115,7 @@
         var lowPrice = document.getElementById("lowPrice").value;
         var highPrice = document.getElementById("highPrice").value;
         if (!isNaN(lowPrice) && !isNaN(highPrice)) {
-            if (lowPrice < highPrice) {
+            if (parseFloat(lowPrice) < parseFloat(highPrice)) {
                 return true;
             }
             else {

@@ -2,8 +2,7 @@ package com.tuan.DB.DAOImpl;
 
 import com.tuan.DB.DAO.AdminDAO;
 import com.tuan.DB.DBManager.DatabaseConnection;
-import com.tuan.DB.domain.Product;
-import com.tuan.DB.domain.Review;
+import com.tuan.DB.domain.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -66,6 +65,37 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
+    public City getCityByCityId(int cityId) throws Exception {
+        DatabaseConnection db = new DatabaseConnection();
+        Connection con = db.getConnection();
+
+        City city = new City();
+        String getCitySql = "SELECT * FROM CITYS WHERE CITY_ID=?";
+        PreparedStatement stmt = con.prepareStatement(getCitySql);
+        stmt.setInt(1, cityId);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()){
+            city.setCityId(rs.getInt("city_id"));
+            city.setCityName(rs.getString("city_name"));
+        }
+        return city;
+    }
+
+    @Override
+    public boolean editCity(int cityId, String cityName) throws Exception {
+        DatabaseConnection db = new DatabaseConnection();
+        Connection con = db.getConnection();
+
+        String editCitySql = "UPDATE CITYS SET CITY_NAME=? WHERE CITY_ID=?";
+        PreparedStatement stmt = con.prepareStatement(editCitySql);
+        stmt.setString(1, cityName);
+        stmt.setInt(2, cityId);
+
+        int m = stmt.executeUpdate();
+        return m>0;
+    }
+
+    @Override
     public boolean checkDistrict(int cityId, String districtName) throws Exception {
         DatabaseConnection db = new DatabaseConnection();
         Connection con = db.getConnection();
@@ -116,6 +146,40 @@ public class AdminDAOImpl implements AdminDAO {
     }
 
     @Override
+    public District getDistrictByDistrictId(int districtId) throws Exception {
+        DatabaseConnection db = new DatabaseConnection();
+        Connection con = db.getConnection();
+
+        District district = new District();
+        String getDistrictSql = "SELECT DISTRICT_ID, DISTRICT_NAME, CITY_NAME FROM DISTRICTS, CITYS WHERE DISTRICT_ID=? AND CITYS.CITY_ID=DISTRICTS.CITY_ID";
+        PreparedStatement stmt = con.prepareStatement(getDistrictSql);
+        stmt.setInt(1, districtId);
+
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()){
+            district.setDistrictId(rs.getInt("district_id"));
+            district.setDistrictName(rs.getString("district_name"));
+            district.setCityName(rs.getString("CITY_NAME"));
+        }
+        return district;
+    }
+
+    @Override
+    public boolean editDistrict(int districtId, String districtName, int cityId) throws Exception {
+        DatabaseConnection db = new DatabaseConnection();
+        Connection con = db.getConnection();
+
+        String editDistrictSql = "UPDATE DISTRICTS SET DISTRICT_NAME=?, CITY_ID=? WHERE DISTRICT_ID=?";
+        PreparedStatement stmt = con.prepareStatement(editDistrictSql);
+        stmt.setString(1, districtName);
+        stmt.setInt(2, cityId);
+        stmt.setInt(3, districtId);
+
+        int m = stmt.executeUpdate();
+        return m>0;
+    }
+
+    @Override
     // 得到所有城市信息（id-name）
     public HashMap<String, String> getAllCityId() throws Exception {
         DatabaseConnection db = new DatabaseConnection();
@@ -157,6 +221,38 @@ public class AdminDAOImpl implements AdminDAO {
 
         int m = stmt.executeUpdate();
         return m > 0;
+    }
+
+    @Override
+    public boolean editFoodType(int foodTypeId, String foodTypeName) throws Exception {
+        DatabaseConnection db = new DatabaseConnection();
+        Connection con = db.getConnection();
+
+        String editFoodTypeSql = "UPDATE FOODTYPES SET FOODTYPE_NAME=? WHERE FOODTYPE_ID=?";
+        PreparedStatement stmt = con.prepareStatement(editFoodTypeSql);
+        stmt.setString(1, foodTypeName);
+        stmt.setInt(2, foodTypeId);
+
+        int m = stmt.executeUpdate();
+        return m > 0;
+    }
+
+    @Override
+    public FoodType getFoodTypeById(int foodTypeId) throws Exception {
+        DatabaseConnection db = new DatabaseConnection();
+        Connection con = db.getConnection();
+
+        FoodType foodType = new FoodType();
+        String getFoodTypeSql = "SELECT * FROM FOODTYPES WHERE FOODTYPE_ID=?";
+        PreparedStatement stmt = con.prepareStatement(getFoodTypeSql);
+        stmt.setInt(1, foodTypeId);
+
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()){
+            foodType.setFoodTypeId(rs.getInt("foodtype_id"));
+            foodType.setFoodTypeName(rs.getString("foodtype_name"));
+        }
+        return foodType;
     }
 
     @Override

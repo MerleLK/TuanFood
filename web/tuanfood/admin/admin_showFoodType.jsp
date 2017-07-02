@@ -37,7 +37,7 @@
                     <tr>
                         <th><s:property value="#row[0]"/></th>
                         <th><s:property value="#row[1]"/></th>
-                        <th><a href="#">删除</a></th>
+                        <th><a href="getFoodTypeInfo.action?foodTypeId=<s:property value='#row[0]'/>">修改</a></th>
                     </tr>
                 </s:iterator>
                 </tbody>

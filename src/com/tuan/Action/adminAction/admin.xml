@@ -14,6 +14,14 @@
             <result name="success">/tuanfood/admin/admin_showCity.jsp</result>
         </action>
 
+        <action name="getCityInfo" class="com.tuan.Action.adminAction.getCityInfoAction">
+            <result name="success">/tuanfood/admin/admin_showCityInfo.jsp</result>
+        </action>
+        <action name="editCity" class="com.tuan.Action.adminAction.EditCityAction">
+            <result name="success">/tuanfood/admin/admin_index.jsp</result>
+            <result name="fail">/tuanfood/admin/admin_index.jsp</result>
+        </action>
+
         <action name="showDistrict" class="com.tuan.Action.adminAction.showDistrictAction">
             <result name="success">/tuanfood/admin/admin_showDistrict.jsp</result>
         </action>
@@ -21,6 +29,13 @@
             <result name="success">/tuanfood/admin/admin_addDistrict.jsp</result>
         </action>
         <action name="addDistrict" class="com.tuan.Action.adminAction.AddDistrictAction">
+            <result name="success">/tuanfood/admin/admin_index.jsp</result>
+            <result name="fail">/tuanfood/admin/admin_index.jsp</result>
+        </action>
+        <action name="getDistrictInfo" class="com.tuan.Action.adminAction.getDistrictInfoAction">
+            <result name="success">/tuanfood/admin/admin_showDistrictInfo.jsp</result>
+        </action>
+        <action name="editDistrict" class="com.tuan.Action.adminAction.EditDistrictAction">
             <result name="success">/tuanfood/admin/admin_index.jsp</result>
             <result name="fail">/tuanfood/admin/admin_index.jsp</result>
         </action>
@@ -32,6 +47,13 @@
         </action>
         <action name="showFoodType" class="com.tuan.Action.adminAction.showFoodTypeAction">
             <result name="success">/tuanfood/admin/admin_showFoodType.jsp</result>
+        </action>
+        <action name="getFoodTypeInfo" class="com.tuan.Action.adminAction.getFoodTypeInfoAction">
+            <result name="success">/tuanfood/admin/admin_showFoodTypeInfo.jsp</result>
+        </action>
+        <action name="editFoodType" class="com.tuan.Action.adminAction.EditFoodTypeAction">
+            <result name="success">/tuanfood/admin/admin_index.jsp</result>
+            <result name="fail">/tuanfood/admin/admin_index.jsp</result>
         </action>
 
 

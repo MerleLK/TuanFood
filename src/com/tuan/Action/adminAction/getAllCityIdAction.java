@@ -7,7 +7,7 @@ import com.tuan.DB.DAOImpl.AdminDAOImpl;
 import java.util.HashMap;
 import java.util.List;
 
-/** 得到所有的城市ID的Action
+/** 得到所有的城市信息的Action
  * Created by Administrator on 2017/6/25.
  */
 public class getAllCityIdAction extends ActionSupport{
